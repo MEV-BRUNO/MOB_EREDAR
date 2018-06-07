@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="text">#566885</color>
+    <color name="textHint">#566885</color>
+    <color name="textTamni">#222a3f</color>
+    <color name="gradient_start2">#9C005E3E</color>
+    <color name="gradient_end2">#005b42</color>
+    <color name="podlogaColor">#f6f5f3</color>
+    <color name="borderForm">#948e8c</color>
+    <color name="windColor">#9E81C170</color>
+
+</resources>

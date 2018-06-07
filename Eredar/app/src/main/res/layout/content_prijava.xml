@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/podlogaColor"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/labPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:text="Fotografija"
+            android:textColor="@color/textTamni"
+            android:textSize="16dp"
+            android:typeface="serif" />
+
+        <ViewAnimator
+            android:id="@+id/sample_output"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_below="@+id/labPhoto"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_below="@+id/labPhoto"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_border"
+                android:src="@drawable/ic_photo"
+                />
+
+        </ViewAnimator>
+
+        <View
+            android:id="@+id/linija"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/sample_output"
+            android:background="@color/text" />
+
+        <!--  naslov -->
+        <TextView
+            android:id="@+id/labAdresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/labAdresa"
+            android:textColor="@color/textTamni"
+            android:textSize="16dp"
+            android:layout_below="@+id/linija"
+            android:typeface="serif" />
+        <TextView
+            android:id="@+id/labAdresa2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Ivana pl. Zajca 25, Čakovec"
+            android:textColor="@color/text"
+            android:textSize="16dp"
+            android:layout_below="@+id/labAdresa"
+            android:typeface="serif" />
+
+            <!--  end naslov -->
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Odaberite vrstu prijave"
+            android:background="@drawable/button_border"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:id="@+id/spinner" />
+
+        <EditText
+            android:id="@+id/editTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_border"
+            android:textColor="@color/text"
+            android:textColorHint="@color/textHint"
+            android:hint="Upiši naziv prijave"
+            android:inputType="textPersonName"
+            android:layout_below="@+id/spinner"
+            android:layout_margin="5dp"
+            android:padding="5dp" />
+
+
+        <EditText
+            android:id="@+id/editMessage"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/text"
+            android:background="@drawable/button_border"
+            android:breakStrategy="balanced"
+            android:fitsSystemWindows="true"
+            android:layout_margin="5dp"
+            android:gravity="top"
+            android:hint="Vaša poruka"
+            android:inputType="textMultiLine"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:singleLine="false" />
+
+    <Button
+        android:id="@+id/prijavaBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="PHOTO"
+        android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+
+
+
+
