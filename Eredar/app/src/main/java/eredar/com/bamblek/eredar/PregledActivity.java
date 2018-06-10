@@ -1,5 +1,6 @@
 package eredar.com.bamblek.eredar;
 
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,17 +12,47 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.net.URL;
+import java.util.ArrayList;
+
+import eredar.com.bamblek.eredar.klase.Prijava;
+import eredar.com.bamblek.eredar.klase.PrijavaAdapter;
 import eredar.com.bamblek.eredar.klase.SystemBarTintManager;
 
 public class PregledActivity extends AppCompatActivity {
+
+    private URL url;
+    private PrijavaAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pregled);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);;
+        setSupportActionBar(toolbar);
+
+        ArrayList<Prijava> prijave = new ArrayList<Prijava>();
+        adapter = new PrijavaAdapter(this, prijave);
+        ListView listView = (ListView) findViewById(R.id.lvPrijave);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent x = new Intent(PregledActivity.this, DetaljiActivity.class);
+                x.putExtra("id",l);
+                startActivity(x);
+            }
+        });
 
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#007a50\">" +
                 getResources().getString(R.string.title_activity_pregled) + "</font>"));
@@ -42,6 +73,17 @@ public class PregledActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_24dp); // ikona za povratak
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        try {
+
+            url =  new URL("https://api.myjson.com/bins/11foii");
+            new NetworkAsyncGet().execute(url).toString();
+        } catch (Exception e) {
+            String s = e.toString();
+        }
+
+
+
     }
 
     @Override
@@ -69,4 +111,31 @@ public class PregledActivity extends AppCompatActivity {
         win.setAttributes(winParams);
     }
 
+    public class NetworkAsyncGet extends android.os.AsyncTask<java.net.URL, Void, String> {
+        private String ret = null;
+        protected String doInBackground(URL... urls) {
+
+            try {
+                HttpClient httpClient = new DefaultHttpClient();
+                HttpGet httpGet = new HttpGet(urls[0].toString());
+                HttpResponse response = httpClient.execute(httpGet);
+                ret = org.apache.http.util.EntityUtils.toString(response.getEntity(), "UTF-8");
+            } catch (Exception e) {
+                String s = e.toString();
+            }
+            return ret;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            try{
+                JSONArray ja = new JSONArray(ret);
+                ArrayList<Prijava> prijave = Prijava.fromJson(ja);
+                adapter.addAll(prijave);
+            }catch(Exception e){
+
+            }
+        }
+
+    }
 }

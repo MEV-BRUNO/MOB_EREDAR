@@ -11,5 +11,7 @@
     <color name="podlogaColor">#f6f5f3</color>
     <color name="borderForm">#948e8c</color>
     <color name="windColor">#9E81C170</color>
+    <color name="crvena">#ff2b1b</color>
+    <color name="plava">#4d79c8</color>
 
 </resources>

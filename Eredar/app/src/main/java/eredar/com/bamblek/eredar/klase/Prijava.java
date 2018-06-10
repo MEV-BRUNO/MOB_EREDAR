@@ -1,6 +1,13 @@
 package eredar.com.bamblek.eredar.klase;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Date;
+
 
 public class Prijava {
     private int id;
@@ -50,6 +57,34 @@ public class Prijava {
         this.zavrsena = zavrsena;
         this.nazivGrada = nazivGrada;
     }
+
+    public Prijava(JSONObject object){
+        try {
+            this.id = Integer.parseInt(object.getString("id"));
+            this.naslov = object.getString("naslov");
+            this.adresa = object.getString("adresa");
+            this.opis = object.getString("opis");
+            this.napomena = object.getString("napomena");
+            this.zaprimljena = new Date(Long.parseLong(object.getString("zaprimljena").replace("/Date(","").replace(")/","")));
+            this.zavrsena = new Date(Long.parseLong(object.getString("zavrsena").replace("/Date(","").replace(")/","")));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static ArrayList<Prijava> fromJson(JSONArray jsonObjects) {
+        ArrayList<Prijava> prijave = new ArrayList<Prijava>();
+        for (int i = 0; i < jsonObjects.length(); i++) {
+            try {
+                prijave.add(new Prijava(jsonObjects.getJSONObject(i)));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return prijave;
+    }
+
 
     public int getId() {
         return id;

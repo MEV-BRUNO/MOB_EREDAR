@@ -39,7 +39,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import eredar.com.bamblek.eredar.klase.GPSTracker;
-import eredar.com.bamblek.eredar.klase.NetworkAsync;
+
 import eredar.com.bamblek.eredar.klase.SystemBarTintManager;
 
 
@@ -105,11 +105,11 @@ public class PrijavaActivity extends AppCompatActivity implements ActivityCompat
             public void onClick(View v) {
                 if(salji){
                     try{
-                        url =  new URL("http://localhost:57456/AdminRest/GetAllPrijave");
-                        String s = new NetworkAsync().execute(url).toString();
+                        url =  new URL("https://api.myjson.com/bins/11foii");
+                        String s = new NetworkAsyncGet().execute(url).toString();
                         String u = s;
                     }catch (Exception e){
-
+                        String u = e.toString();
                     }
 
 
@@ -359,6 +359,22 @@ public class PrijavaActivity extends AppCompatActivity implements ActivityCompat
         }
     }
 
+
+    public class NetworkAsyncGet extends android.os.AsyncTask<URL, Void, String> {
+    protected String doInBackground(URL... urls) {
+        String ret= null;
+        try {
+            HttpClient httpClient = new DefaultHttpClient();
+            HttpGet httpGet = new HttpGet(urls[0].toString());
+            HttpResponse response = httpClient.execute(httpGet);
+            ret = org.apache.http.util.EntityUtils.toString(response.getEntity());
+        }catch(Exception e){
+            String s =e.toString();
+        }
+        return ret;
+    }
+
+}
 
 
 }

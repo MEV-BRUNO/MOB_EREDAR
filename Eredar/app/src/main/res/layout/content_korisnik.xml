@@ -34,10 +34,11 @@
         android:textColor="@color/text"
         android:textColorHint="@color/textHint"
         android:hint="Upiši mail"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:layout_below="@+id/spinner"
         android:layout_margin="5dp"
-        android:padding="5dp" />
+        android:padding="5dp"
+/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -58,7 +59,7 @@
         android:textColor="@color/text"
         android:textColorHint="@color/textHint"
         android:hint="Upiši lozinku"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:layout_below="@+id/spinner"
         android:layout_margin="5dp"
         android:padding="5dp" />

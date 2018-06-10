@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/datumView"
+            android:paddingRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Datum"
+            android:textColor="@color/textTamni"
+            android:textSize="16dp"
+            android:typeface="serif" />
+        <TextView
+            android:id="@+id/nazivView"
+            android:paddingTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Naziv"
+            android:textColor="@color/textTamni"
+            android:textSize="20dp"
+            android:typeface="serif" />
+
+
+    </TableRow>
+    <TableRow>
+        <TextView />
+        <TextView
+            android:id="@+id/lokacijaView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="lokacija"
+            android:paddingBottom="5dp"
+            android:textColor="@color/textTamni"
+            android:textSize="12dp"
+            android:typeface="serif"
+            />
+        />
+    </TableRow>
+</TableLayout>

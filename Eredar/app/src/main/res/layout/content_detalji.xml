@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_detalji"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -13,4 +14,74 @@
     tools:context="eredar.com.bamblek.eredar.DetaljiActivity"
     tools:showIn="@layout/activity_detalji">
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/datumView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/crvena"
+        android:text="Datum"
+        android:typeface="serif"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Naslov prijave: "
+        android:textColor="@color/textTamni"
+        android:textSize="18dp"
+        android:typeface="serif"/>
+    <TextView
+        android:id="@+id/naslovView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="@color/plava"
+        android:text="Naslov"
+        android:typeface="serif"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="Opis: "
+        android:textColor="@color/textTamni"
+        android:textSize="18dp"
+        android:typeface="serif"/>
+    <TextView
+        android:id="@+id/opisView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="@color/plava"
+        android:text="Opis"
+        android:typeface="serif"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="Odgovor: "
+        android:textColor="@color/textTamni"
+        android:textSize="18dp"
+        android:typeface="serif"/>
+    <TextView
+        android:id="@+id/napomenaView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="@color/plava"
+        android:text="Napomena"
+        android:typeface="serif"/>
+    <TextView
+        android:id="@+id/odgovorenoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/crvena"
+        android:text="Odgovoreno"
+        android:typeface="serif"
+        android:paddingBottom="10dp"/>
+
+
+
+
+
+</LinearLayout>
