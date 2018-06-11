@@ -24,11 +24,6 @@ public class OprojektuActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        SharedPreferences preferences =getSharedPreferences("eredar_pref",MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.clear();//       ove linije
-        editor.commit();//      se koriste za
-        finish();//             brisanje SharedPreferences
 
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#007a50\">" +
                 getResources().getString(R.string.title_activity_oprojektu) + "</font>"));

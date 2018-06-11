@@ -176,6 +176,13 @@ public class NavActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        }else if (id == R.id.nav_odjava) {
+            SharedPreferences sp = getSharedPreferences("eredar_pref", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.clear();
+            editor.commit();
+            startActivity(new Intent(NavActivity.this, KorisnikActivity.class));
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
